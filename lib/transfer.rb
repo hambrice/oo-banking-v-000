@@ -14,7 +14,7 @@ class Transfer
   end
   
   def execute_transaction
-    if @sender.valid? && @status == "pending"
+    if @sender.balance > @amount && @status == "pending"
       binding.pry
       @receiver.balance = @receiver.balance + @amount
       @sender.balance = @sender.balance - @amount
